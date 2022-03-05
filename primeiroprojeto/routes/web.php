@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/index', [HomeController::class, 'index' ]);
+Route::get('/index', [HomeController::class, 'index']);
 
-Route::get('/primeiroexercicio', [HomeController::class, 'primeiroexercicio']);
+Route::get('/exemplo', [HomeController::class, 'exemplo']);
+
+Route::post('/Resultado', [HomeController::class, 'resultado']);

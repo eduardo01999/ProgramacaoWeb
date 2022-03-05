@@ -12,7 +12,24 @@
   </head>
   <body>
     <h1>@yield('titulo')</h1>
-    @yield('conteudo')
+
+    <form action="/Resultado" method="post">
+        @csrf <!-- Obrigatório usar o @csrf-->
+        <div class="room">
+            <label for="valor" class="label-control">
+                Informe o valor:
+            </label>
+            <input type="number" name="valor" class="form-control">
+        </div>
+    </br>
+        <div class="room">
+            <button class="btn btn-primary" type="submit">
+                Ok
+            </button>
+        </div>
+    </form>
+
+
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

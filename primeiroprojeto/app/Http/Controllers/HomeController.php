@@ -9,7 +9,12 @@ class HomeController extends Controller
     public function index() {
         return view( "welcome");
     }
-    public function primeiroexercicio() {
-        return view( "exercicio1");
+    public function exemplo() {
+        return view( "exemplo");
+    }
+
+    public function resultado(Request $request) {
+        $valor = $request['valor'];
+        return "O valor informado é $valor";
     }
 }
