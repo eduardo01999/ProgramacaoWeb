@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/listaExercicios', [HomeController::class, 'listaExercicio']);
+Route::get('/', [HomeController::class, 'listaExercicio']);
 
 Route::get('/exercicio1', [HomeController::class, 'exercicio1']);
 Route::post('/resultadoex1', [HomeController::class, 'resultadoex1']);
