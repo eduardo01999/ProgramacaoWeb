@@ -41,6 +41,9 @@
     </div>
 </form>
 
+@if(isset($resultado))
+    <div class="alert alert-info">{{$resultado}}</div>
+@endif
 
 <!-- Optional JavaScript; choose one of the two! -->
 

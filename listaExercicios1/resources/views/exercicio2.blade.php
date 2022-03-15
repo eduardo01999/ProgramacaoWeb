@@ -33,7 +33,9 @@
         </button>
     </div>
 </form>
-
+@if(isset($precoFinal))
+    <div class="alert alert-info">{{$precoFinal}}</div>
+@endif
 
 <!-- Optional JavaScript; choose one of the two! -->
 

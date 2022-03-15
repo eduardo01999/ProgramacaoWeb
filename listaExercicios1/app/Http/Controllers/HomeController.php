@@ -20,8 +20,13 @@ class HomeController extends Controller
     {
         $valor = $request['valor'];
         $preco = $request['preco'];
-        $troco = $valor - $preco;
-        return "O troco é de R$ $troco";
+        if ($valor == $preco)
+            $troco = "Não há troco!";
+        elseif($valor<$preco)
+            $troco = "Valor insuficiente para pagamento!";
+        else
+            $troco = "Valor do troco: ".($valor - $preco);
+        return view('exercicio1', compact('troco'));
     }
 
     public function exercicio2()
@@ -33,8 +38,8 @@ class HomeController extends Controller
     {
         $valor = $request['valor'];
         $quantidade = $request['quantidade'];
-        $precoFinal = $valor * $quantidade;
-        return "O troco é de R$ $precoFinal";
+        $precoFinal = "O valor total é de R$ ".($valor * $quantidade);
+        return view ('exercicio2', compact('precoFinal'));
     }
 
     public function exercicio3()
@@ -46,11 +51,12 @@ class HomeController extends Controller
     {
         $valor = $request['valor'];
         if ($valor > 10) {
-            return "O valor é maior que 10";
+            $resultado = "O valor é maior que 10";
         } elseif ($valor == 10) {
-            return "O valor é igual a 10";
+            $resultado = "O valor é igual a 10";
         } else
-            return "O valor é menor que 10";
+            $resultado = "O valor é menor que 10";
+        return view ('exercicio3', compact('resultado'));
     }
 
     public function exercicio4()
@@ -62,11 +68,12 @@ class HomeController extends Controller
     {
         $valor = $request['valor'];
         if ($valor > 0) {
-            return "O valor é positivo";
+            $resultado = "O valor é positivo";
         } elseif ($valor == 0) {
-            return "O valor é igual a zero";
+            $resultado = "O valor é igual a zero";
         } else
-            return "O valor é negativo";
+            $resultado = "O valor é negativo";
+        return view ('exercicio4', compact('resultado'));
     }
 
     public function exercicio5()
@@ -84,10 +91,11 @@ class HomeController extends Controller
         $media = ($nt1 + $nt2 + $nt3 + $nt4) / 4;
 
         if ($media >= 7) {
-            return "Aprovado!!";
+            $resultado = "Aprovado!!";
         }
         else {
-            return "Reprovado!!";
+            $resultado = "Reprovado!!";
         }
+        return view ('exercicio5', compact('resultado'));
     }
 }

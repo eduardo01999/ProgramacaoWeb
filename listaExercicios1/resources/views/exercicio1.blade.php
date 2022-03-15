@@ -34,6 +34,10 @@
     </div>
 </form>
 
+@if(isset($troco))
+    <div class="alert alert-info">{{$troco}}</div>
+@endif
+
 
 <!-- Optional JavaScript; choose one of the two! -->
 
