@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categoria;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
@@ -31,6 +32,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
+        Gate::authorize("acesso-administrador");
         return view('categoria.create');
     }
 
