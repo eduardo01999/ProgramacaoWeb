@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resources([
-    'categoria' => CategoriaController::class
+    'categoria' => CategoriaController::class,
+    'produto' => \App\Http\Controllers\ProdutoController::class
 ]);
 
 Route::resources([
