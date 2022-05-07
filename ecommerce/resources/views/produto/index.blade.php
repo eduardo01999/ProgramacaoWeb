@@ -42,7 +42,14 @@
                                         {{$p->categoria->descricao}}
                                     </td>
                                     <td class="px-6 py-4 text-right">
-                                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                        <a href="{{route("produto.edit", $p->id)}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Alterar</a>
+                                        <form action="{{route('produto.destroy', $p->id)}}" method="POST">
+                                            @csrf
+                                            @method("DELETE")
+                                            <button class="font-medium text-blue-600 dark:text-blue-500 hover:underline" >
+                                                Excluir
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
