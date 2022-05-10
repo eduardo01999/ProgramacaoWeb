@@ -32,6 +32,18 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div>
+                            <x-label>Selecione o fornecedor:</x-label>
+                            <select name="fornecedor_id">
+                                @foreach($fornecedores as $f)
+                                    <option value="{{$f->id}}"
+                                    @if(@$f->id == $produto->fornecedor->id)
+                                        selected
+                                    @endif
+                                    >{{$f->nomeFantasia}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="mt-5">
                             <x-button>Alterar</x-button>
                         </div>

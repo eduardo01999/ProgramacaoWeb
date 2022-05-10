@@ -17,11 +17,16 @@ class CreateProdutosTable extends Migration
             $table->id();
             $table->string("nome");
             $table->string("descricao");
+            $table->string("preco");
             //para colocar chave estrangeira usar essa estrutura \/
             $table->unsignedBigInteger("categoria_id");
             $table->foreign("categoria_id")
                 ->references("id")
                 ->on("categorias");
+            $table->unsignedBigInteger("fornecedor_id");
+            $table->foreign("fornecedor_id")
+                ->references("id")
+                ->on("fornecedors");
             $table->timestamps();
         });
     }

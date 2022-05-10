@@ -20,10 +20,23 @@
                                      class="block mt-1 w-full"/>
                         </div>
                         <div>
+                            <x-label>Informe o preço:</x-label>
+                            <x-input name="preco"
+                                     class="block mt-1 w-full"/>
+                        </div>
+                        <div>
                             <x-label>Selecione a categoria:</x-label>
                             <select name="categoria_id">
                                 @foreach($categorias as $c)
                                     <option value="{{$c->id}}">{{$c->descricao}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div>
+                            <x-label>Selecione o fornecedor:</x-label>
+                            <select name="fornecedor_id">
+                                @foreach($fornecedores as $f)
+                                    <option value="{{$f->id}}">{{$f->nomeFantasia}}</option>
                                 @endforeach
                             </select>
                         </div>

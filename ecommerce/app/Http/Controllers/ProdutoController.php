@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categoria;
+use App\Models\Fornecedor;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 
@@ -31,8 +32,9 @@ class ProdutoController extends Controller
     public function create()
     {
         $categorias = Categoria::all();
+        $fornecedores = Fornecedor::all();
         return view("produto.create",
-               compact("categorias"));
+               compact("categorias", "fornecedores"));
     }
 
     /**
@@ -78,8 +80,9 @@ class ProdutoController extends Controller
     {
         $categorias = Categoria::all();
         $produto = Produto::findOrFail($id);
+        $fornecedores = Fornecedor::all();
         return view('produto.edit',
-            compact('categorias', 'produto'));
+            compact('categorias', 'produto', 'fornecedores'));
     }
 
     /**
@@ -115,10 +118,10 @@ class ProdutoController extends Controller
             Produto::destroy($id);
             return redirect()->
             action([ProdutoController::class, 'index'])
-                ->with("respota","Produto excluido!");
+                ->with("resposta","Produto excluido!");
         } catch (\Exception $e) {
             return redirect()->action([ProdutosController::class, 'index'])
-                ->with("respota","Erro ao excluir produto!");
+                ->with("resposta","Erro ao excluir produto!");
         }
     }
 }
