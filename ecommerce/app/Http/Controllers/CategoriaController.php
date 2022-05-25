@@ -32,7 +32,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        //Gate::authorize("acesso-administrador");  EXEMPLO DE RESTRIÇÃO
+        Gate::authorize("acesso-administrador");  //EXEMPLO DE RESTRIÇÃO
         return view('categoria.create');
     }
 

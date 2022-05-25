@@ -24,12 +24,13 @@ Route::resources([
     'fornecedor' => FornecedorController::class
 ]);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get("/", [\App\Http\Controllers\HomeController::class, 'index']);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get("/detalhe/{id}", [\App\Http\Controllers\HomeController::class, 'detalhe']);
+
+Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'dashboard'])->name('dashboard');
+
+Route::get('/carrinho',
+    [\App\Http\Controllers\CompraController::class, 'compras'])->name('carrinho');
 
 require __DIR__.'/auth.php';
